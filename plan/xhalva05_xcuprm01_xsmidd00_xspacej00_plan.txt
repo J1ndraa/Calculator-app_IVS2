@@ -1,0 +1,33 @@
+Termíny:
+Začátek prací (nejpozději) - 22.3.
+Makefile - 24.3.
+Testy pro matematickou knihovnu - 26.3.
+Zhotovení zakládních matematických funkcí - 31.3.
+Základ GUI - 31.3.
+Složitějsí matematické funkce - 10.4
+Profiling - 10.4.
+Hotové GUI a funkčnost programu - 17.4.
+Instalátory - v průběhu
+Mockup - 18.4.
+Zhotovení výsledného repozitáře - 20.4.
+Dokumentace - 22.4.
+Oslava po odevzdání - 25.4.
+Příprava na obhajobu - konec dubna 
+
+Rozdělení práce:
+Makefile - xspacej00
+Testy pro matematickou knihovnu - xsmidd00
+Zhotovení zakládních matematických funkcí - xhalva05
+Základ GUI - xcuprm01
+Složitějsí matematické funkce - xhalva05
+Profiling - xspacej00
+Instalátory - xsmidd00
+Mockup - všichni členové
+Dokumentace - xcuprm01
+
+Komunikace: Kanál na Discordu
+- pravidla pro komunikaci:
+  Jedna z místností vyhrazená pouze na záležitosti ohledně projektu, nesmí se zahlcovat zbytečnostmi
+
+Verzování: Github
+- přidáme do repozitáře uživatele "ivskontrola"
