@@ -4,4 +4,4 @@
 - xcuprm01
 - xhalva05
 - xspacej00
-- xsmidd00
+- xsmiddo00
