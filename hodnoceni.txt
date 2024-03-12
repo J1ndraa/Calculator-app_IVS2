@@ -1,4 +1,4 @@
 xhalva05 100 (základní mat. operace, pokročilé mat. operace)
 xcuprm01 100 (GUI, dokumentace)
-xsmidd00 100 (testy, instalátor)
+xsmiddo00 100 (testy, instalátor)
 xspacej00 100 (makefile, profiling)
