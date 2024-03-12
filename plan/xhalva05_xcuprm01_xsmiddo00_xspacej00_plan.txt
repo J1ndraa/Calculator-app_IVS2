@@ -16,12 +16,12 @@ Příprava na obhajobu - konec dubna
 
 Rozdělení práce:
 Makefile - xspacej00
-Testy pro matematickou knihovnu - xsmidd00
+Testy pro matematickou knihovnu - xsmiddo00
 Zhotovení zakládních matematických funkcí - xhalva05
 Základ GUI - xcuprm01
 Složitějsí matematické funkce - xhalva05
 Profiling - xspacej00
-Instalátory - xsmidd00
+Instalátory - xsmiddo00
 Mockup - všichni členové
 Dokumentace - xcuprm01
 
