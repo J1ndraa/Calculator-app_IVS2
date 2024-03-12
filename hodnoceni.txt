@@ -1,4 +1,4 @@
-xlogin01 100 (základ GUI a základní mat. operace)
-xlogin02 100 (pokročilé mat. operace)
-xlogin03 90 (profiling, instalátor)
-xlogin04 110 (testy, dokumentace)
+xhalva05 100 (základní mat. operace, pokročilé mat. operace)
+xcuprm01 100 (GUI, dokumentace)
+xsmidd00 100 (testy, instalátor)
+xspacej00 100 (makefile, profiling)
