@@ -8,17 +8,38 @@
 # Při spuštění make bez uvedení cíle se provede make all.
 
 CC = python3
+.DEFAULT_GOAL := all
 
 all: 
 
 pack:
 
 clean:
+	rm -rf ../code/__pycache__
 
 test:
+	@echo "\e[1;97;44mbasic tests:\e[0m"
+	@for number in 1 2 3 4 5 6 7 8 9 10 11 12 ; do \
+		echo "\e[92mtest $$number:\e[0m" ; \
+		cat "../code/tests/basic_operation_$$number.input" ; \
+		echo "" ; \
+		python3 ../code/calc.py < ../code/tests/basic_operation_$$number.input ; \
+		echo "" ; \
+	done
+
+	@echo "\e[1;97;44madvanced tests:\e[0m"
+	@for number in 1 2 3 4 5 6 7 8 ; do \
+		echo "\e[92mtest $$number:\e[0m" ; \
+		cat "../code/tests/advanced_operation_$$number.input" ; \
+		echo "" ; \
+		python3 ../code/calc.py < ../code/tests/advanced_operation_$$number.input ; \
+		echo "" ; \
+	done
 
 doc:
 
 run:
 
 profile:
+
+.PHONY: all pack clean test doc run profile
