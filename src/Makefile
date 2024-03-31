@@ -38,7 +38,8 @@ test:
 
 doc:
 
-run:
+run: main.py	# tohle nahradit hlavním souborem
+	python main.py 
 
 profile:
 
