@@ -1,3 +1,6 @@
+
+from math_library import MathLib
+
 class Calculator:
     def __init__(self):
         self.postfix = []
@@ -62,22 +65,22 @@ class Calculator:
                 val1, val2 = stack.pop_multiple()
                 match char:
                     case '+':
-                        result = val1 + val2
+                        result = MathLib.add(val1,val2)
                         stack.push(result)
                     case '-':
-                        result = val2 - val1
+                        result = MathLib.sub(val2, val1)
                         stack.push(result)
                     case '*':
-                        result = val1 * val2
+                        result = MathLib.mul(val1,val2)
                         stack.push(result)
                     case '/':
-                        result = val2 / val1
+                        result = MathLib.div(val2,val1)
                         stack.push(result)
                     case '%':
-                        result = val2 % val1
+                        result = MathLib.mod(val2, val1)
                         stack.push(result)
                     case '^':
-                        result = val2 ** val1
+                        result = MathLib.expo(val2,val1)
                         stack.push(result)
                     case _  : 
                         exit(1)
