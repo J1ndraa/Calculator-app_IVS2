@@ -1,101 +1,180 @@
+##
+# @author Marek Čupr (xcuprm01)
+# @name Calculator class
+# @subject IVS - Project 2
+# @date 14. 03. 2024
+#
+# @brief This file includes implementation of Calculator class, that is used to create and evaluate infix expressions.
+#
 
+# Importing the math_library module
 from math_library import MathLib
+from stack import Stack
 
+##
+# @brief Calculator class
+#
 class Calculator:
+    ##
+    # @brief Constructor for the Calculator class.
+    #
     def __init__(self):
+        # Stack used for postfix conversion and evaluation
+        self.stack = Stack()
+        # List to store postfix expression
         self.postfix = []
+        # List of operators and their precedence
         self.precedence = [
             ('+', 1),
             ('-', 1),
             ('*', 2),
             ('/', 2),
             ('%', 2),
-            ('^', 3)
+            ('^', 3),
+            ('√', 4),
+            ('!', 4)
         ]
 
-    def postfix_convert(self, stack, equation):
+    ##
+    # @brief Convert infix expression to postfix expression.
+    # @param equation Infix expression to be converted.
+    #
+    def postfix_convert(self, equation):
+        # Iterate over the infix expression
         for char in equation:
-            if (char.isdigit()):
+            # Operand
+            if isinstance(char, (int, float)):
                 self.postfix.append(char)
-            elif (char == '('):
-                stack.push(char)
-            elif (char == ')'):
-                self.untilLeftPar(stack)
+            # Left parenthesis
+            elif char == '(':
+                self.stack.push(char)
+            # Right parenthesis
+            elif char == ')':
+                self.untilLeftPar()
+            # Operator / equal sign or invalid character 
             else:
-                if (char == '='):
-                    self.pop_stack(stack)
+                # Equal sign
+                if char == '=':
+                    self.pop_stack()
+                # Operator
+                elif any(char == operator[0] for operator in self.precedence):
+                    self.operatorPrecedence(char)
+                # Invalid character
+                else:
+                    raise ValueError("Invalid character in equation")
 
-                self.operatorPrecedence(stack, char)
+    ##
+    # @brief Clean the stack until a left parenthesis is found.
+    # @param stack Stack to be cleaned.
+    #
+    def untilLeftPar(self):
+        # Pop the stack until a left parenthesis is found
+        while self.stack.top() != '(':
+            self.postfix.append(self.stack.pop())
+        
+        # Pop the left parenthesis from the stack as well
+        self.stack.pop()
 
-    def untilLeftPar(self, stack):
-        while (stack.top() != '('):
-            self.postfix.append(stack.pop())
-        stack.pop()
+    ##
+    # @brief Handle stack and postfix expression based on the operator precedence. 
+    # @param operator Operator to be handled.
+    #
+    def operatorPrecedence(self, operator):
+        # Push the operator to the stack if it is empty
+        if self.stack.is_empty():
+            self.stack.push(operator)
+        # Push the operator to the stack if left parenthesis is on the top of the stack
+        elif self.stack.top() == '(':
+            self.stack.push(operator)
+        # Push the operator to the stack if the operator has a higher precedence
+        elif self.get_precedence(operator) > self.get_precedence(self.stack.top()):
+            self.stack.push(operator)
+        # Pop operators from the stack and append them to the postfix expression until the operator has a higher precedence
+        else:
+            self.postfix.append(self.stack.pop())
+            self.operatorPrecedence(operator)
 
-    def operatorPrecedence(self, stack, char):
-        if (stack.is_empty()):
-            stack.push(char)
-            return
-        if (char == '(' or stack.top() == '('):
-            stack.push(char)
-            return
-        if (self.get_precedence(char) > self.get_precedence(stack.top())):
-            stack.push(char)
-            return
-        self.postfix.append(stack.pop())
-        self.operatorPrecedence(stack, char)
+    ##
+    # @brief Pop the stack and append the remaining operators to the postfix expression.
+    #
+    def pop_stack(self):
+        while not self.stack.is_empty():
+            self.postfix.append(self.stack.pop())
 
-    def pop_stack(self, stack):
-        while (not stack.is_empty()):
-            self.postfix.append(stack.pop())
-
-        #self.print_postfix()
-
-    def print_postfix(self):
-        print("Postfix notation: ", end="")
+    ##
+    # @brief Evaluate the postfix expression.
+    #
+    def eval_expr(self):
+        # Iterate over the postfix expression
         for char in self.postfix:
-            print(char, end="")
-        print("")
-
-    def eval_expr(self, stack):
-        for char in self.postfix:
-            if char.isdigit():
-                stack.push(char)
+            # Operand
+            if isinstance(char, (int, float)):
+                self.stack.push(char)
+            # Operator
             else:
-                val1, val2 = stack.pop_multiple()
                 match char:
                     case '+':
-                        result = MathLib.add(val1,val2)
-                        stack.push(result)
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.add(float(val1), float(val2))
+                        self.stack.push(result)
                     case '-':
-                        result = MathLib.sub(val2, val1)
-                        stack.push(result)
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.sub(float(val2), float(val1))
+                        self.stack.push(result)
                     case '*':
-                        result = MathLib.mul(val1,val2)
-                        stack.push(result)
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.mul(float(val1), float(val2))
+                        self.stack.push(result)
                     case '/':
-                        result = MathLib.div(val2,val1)
-                        stack.push(result)
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.div(float(val2), float(val1))
+                        self.stack.push(result)
                     case '%':
-                        result = MathLib.mod(val2, val1)
-                        stack.push(result)
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.mod(float(val2), float(val1))
+                        self.stack.push(result)
                     case '^':
-                        result = MathLib.expo(val2,val1)
-                        stack.push(result)
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.expo(float(val2), float(val1))
+                        self.stack.push(result)
+                    case '√':
+                        val = self.stack.pop()
+                        result = MathLib.sqrt(float(val))
+                        self.stack.push(result)
+                    case '!':
+                        val = self.stack.pop()
+                        # Check if the operand is an integer
+                        if not isinstance(val, int):
+                            raise ValueError("Invalid operand for factorial")
+                        
+                        result = MathLib.fact(int(val))
+                        self.stack.push(result)
                     case _  : 
-                        exit(1)
+                        raise ValueError("Invalid operator")
 
-    def print_result(self, stack):
-        #print("Result: ", end="")
-        result = stack.pop()
+    ##
+    # @brief Print the evaluation result.
+    #
+    def print_result(self):
+        result = self.stack.pop()
+
+        # Check if the result is an integer or a float
         if isinstance(result, float) and result.is_integer():
             print(int(result))
         else:
             print(result)
 
-    def get_precedence(self, char):
+    ##
+    # @brief Get the precedence of the operator.
+    # @param operator Operator to check the precedence of.
+    # @return Precedence of the operator.
+    #
+    def get_precedence(self, operator):
         for op, prec in self.precedence:
-            if op == char:
+            if op == operator:
                 return prec
-        exit(1)
+            
+        raise ValueError("Invalid operator")
+
+# End of calculator.py
            
