@@ -1,11 +1,15 @@
 ##
 # @author Marek Čupr (xcuprm01)
+# @name Stack class
 # @subject IVS - Project 2
 # @date 14. 03. 2024
 #
-# @brief Stack class used for infix to postfix conversion and postfix expression evaluation
+# @brief This file includes implementation of Stack class, that is used for infix to postfix conversion and postfix expression evaluation
 #
 
+##
+# @brief Stack class
+#
 class Stack:
     ##
     # @brief Constructor for the Stack class.
