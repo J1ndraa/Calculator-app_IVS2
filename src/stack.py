@@ -26,6 +26,7 @@ class Stack:
 
     ##
     # @brief Pop the top item from the stack.
+    # @return The top item from the stack.
     #
     def pop(self):
         # Check if the stack is empty
@@ -36,18 +37,21 @@ class Stack:
     
     ##
     # @brief Pop multiple top items from the stack.
+    # @return The top two items from the stack.
     #
     def pop_multiple(self):
         return float(self.stack.pop()), float(self.stack.pop())
 
     ##
     # @brief Get the top item from the stack.
+    # @return The top item from the stack.
     #
     def top(self):
         return self.stack[-1] if not self.is_empty() else ''
 
     ##
     # @brief Check if the stack is empty.
+    # @return True if the stack is empty, False otherwise.
     #
     def is_empty(self):
         return (len(self.stack) == 0)
