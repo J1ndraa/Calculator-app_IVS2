@@ -1,27 +1,51 @@
-class OperatorStack:
+##
+# @author Marek Čupr (xcuprm01)
+# @subject IVS - Project 2
+# @date 14. 03. 2024
+#
+# @brief Stack class used for infix to postfix conversion and postfix expression evaluation
+#
+
+class Stack:
+    ##
+    # @brief Constructor for the Stack class.
+    #
     def __init__(self):
         self.stack = []
 
+    ##
+    # @brief Push new item to the top of the stack.
+    # @param item Item to be pushed onto the stack.
+    #
     def push(self, item):
         self.stack.append(item)
 
+    ##
+    # @brief Pop the top item from the stack.
+    #
     def pop(self):
+        # Check if the stack is empty
         if self.is_empty():
-            exit(1)
+            raise IndexError("Attempted to pop item from an empty stack.")
+        
         return self.stack.pop()
     
-    def top(self):
-        return self.stack[-1] if len(self.stack) != 0 else ''
-
+    ##
+    # @brief Pop multiple top items from the stack.
+    #
     def pop_multiple(self):
         return float(self.stack.pop()), float(self.stack.pop())
 
+    ##
+    # @brief Get the top item from the stack.
+    #
+    def top(self):
+        return self.stack[-1] if not self.is_empty() else ''
+
+    ##
+    # @brief Check if the stack is empty.
+    #
     def is_empty(self):
-        return len(self.stack) == 0
+        return (len(self.stack) == 0)
 
-    def is_empty_2(self):
-        return len(self.stack)
-
-    def size(self):
-        return self.stack.size()
-
+# End of stack.py
