@@ -77,12 +77,12 @@ class MathLib():
     # @return Square root of number a.
     #
     @staticmethod
-    def sqrt(a: float) -> float:
+    def sqrt(a: float, b: float) -> float:
         # Check if the number is negative
         if a < 0:
             raise ValueError("Square root of a negative number")
         
-        return a ** (1/2)
+        return a ** (1 / b)
     
     ##
     # @brief Modulo operation.
