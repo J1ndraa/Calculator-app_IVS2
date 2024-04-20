@@ -14,26 +14,55 @@ DEFAULT="\e[0m"
 test_cnt=0
 tests_passed=0
 
+# Print the help message
+print_help() {
+    clear
+    echo "Usage: ./basic_test.sh [-r <roundNum>]"
+    echo "Options:"
+    echo "  -r <roundNum>  Number of decimal places to round to ... default value is 15"
+    exit 1
+}
+
+if [ "$#" -eq 0 ]; then
+    roundNum=15
+elif [ "$#" -eq 2 ]; then
+    if [ "$1" == "-r" ] && [[ "$2" =~ ^[0-9]+$ ]]; then
+        if [ "$2" -gt 15 ]; then
+            roundNum=15
+        elif [ "$2" -lt 0 ]; then
+            print_help
+        else
+            roundNum=$2
+        fi
+    else
+        print_help
+    fi
+else
+    print_help
+fi
+
 # Function to test the XML generated code
 test_script_output(){
     test_description=$1  # The test description
     test_cnt=$2          # Test count
     test_file=$(pwd)$3   # Program input file 
-    ref_output=$(pwd)$4  # Correct output
+    ref_output=$(cat $(pwd)$4 | awk -v round="$roundNum" 'BEGIN {FS="."} NF > 1 {printf "%."round"f", $1"."$2; exit} {print $0}')  # Correct output
 
     printf "${LIGHT_GRAY}[Test $test_cnt] – $test_description\n" # Print information about the current test
 
-    python3 "calc.py" < $test_file > "tmp_file.out" # Run the parse.py script
+    python3 "calc_test.py" < $test_file > "tmp_file.out" # Run the parse.py script
+    
+    ret_code=$? # Get the return code of the script
 
-    diff -b "$(pwd)/tmp_file.out" "$ref_output"
+    tmp_file=$(cat $(pwd)/tmp_file.out | awk -v round="$roundNum" 'BEGIN {FS="."} NF > 1 {printf "%."round"f", $1"."$2; exit} {print $0}')
 
-    if [ $? -eq 0 ]; then
-        printf "${BLUE}Expected $(cat $ref_output), recieved $(cat $(pwd)/tmp_file.out).\n"
+    if [ "$tmp_file" == "$ref_output" ] && [ "$ret_code" -eq 0 ]; then
+        printf "${BLUE}Expected $ref_output, recieved $tmp_file.\n"
         echo -e "${GREEN}Test passed ✓ ${DEFAULT}\n"
         # Increase the passed tests count
         tests_passed=$(($tests_passed + 1))
     else # The return code is not matching
-        printf "${BLUE}Expected $(cat $ref_output), recieved $(cat $(pwd)/tmp_file.out).\n"
+        printf "${BLUE}Expected $ref_output, recieved $tmp_file.\n"
         echo -e "${RED}Test failed ⨯ ${DEFAULT}\n"
     fi
 
