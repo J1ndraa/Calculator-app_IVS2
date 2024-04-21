@@ -15,14 +15,14 @@ class Stack:
     # @brief Constructor for the Stack class.
     #
     def __init__(self):
-        self.stack = []
+        self.__stack = []
 
     ##
     # @brief Push new item to the top of the stack.
     # @param item Item to be pushed onto the stack.
     #
     def push(self, item):
-        self.stack.append(item)
+        self.__stack.append(item)
 
     ##
     # @brief Pop the top item from the stack.
@@ -33,27 +33,27 @@ class Stack:
         if self.is_empty():
             raise IndexError("Attempted to pop item from an empty stack.")
         
-        return self.stack.pop()
+        return self.__stack.pop()
     
     ##
     # @brief Pop multiple top items from the stack.
     # @return The top two items from the stack.
     #
     def pop_multiple(self):
-        return float(self.stack.pop()), float(self.stack.pop())
+        return float(self.__stack.pop()), float(self.__stack.pop())
 
     ##
     # @brief Get the top item from the stack.
     # @return The top item from the stack.
     #
     def top(self):
-        return self.stack[-1] if not self.is_empty() else ''
+        return self.__stack[-1] if not self.is_empty() else ''
 
     ##
     # @brief Check if the stack is empty.
     # @return True if the stack is empty, False otherwise.
     #
     def is_empty(self):
-        return (len(self.stack) == 0)
+        return (len(self.__stack) == 0)
 
 # End of stack.py
