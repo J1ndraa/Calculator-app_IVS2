@@ -65,7 +65,6 @@ class Calculator:
 
     ##
     # @brief Clean the stack until a left parenthesis is found.
-    # @param stack Stack to be cleaned.
     #
     def untilLeftPar(self):
         # Pop the stack until a left parenthesis is found
@@ -77,14 +76,14 @@ class Calculator:
 
     ##
     # @brief Handle stack and postfix expression based on the operator precedence. 
-    # @param operator Operator to be handled.
+    # @param operator Operator indicating what should be done based on its precedence.
     #
     def operatorPrecedence(self, operator):
         # Push the operator to the stack if it is empty
         if self.stack.is_empty():
             self.stack.push(operator)
         # Push the operator to the stack if left parenthesis is on the top of the stack
-        elif self.stack.top() == '(':
+        elif self.stack.top() == '(' or operator == '(':
             self.stack.push(operator)
         # Push the operator to the stack if the operator has a higher precedence
         elif self.get_precedence(operator) > self.get_precedence(self.stack.top()):
@@ -138,8 +137,8 @@ class Calculator:
                         result = MathLib.expo(float(val2), float(val1))
                         self.stack.push(result)
                     case '√':
-                        val = self.stack.pop()
-                        result = MathLib.sqrt(float(val))
+                        val1, val2 = self.stack.pop_multiple()
+                        result = MathLib.sqrt(float(val1), float(val2))
                         self.stack.push(result)
                     case '!':
                         val = self.stack.pop()
@@ -156,6 +155,7 @@ class Calculator:
     # @brief Print the evaluation result.
     #
     def print_result(self):
+        # Get the result from the stack
         result = self.stack.pop()
 
         # Check if the result is an integer or a float
@@ -177,4 +177,3 @@ class Calculator:
         raise ValueError("Invalid operator")
 
 # End of calculator.py
-           
