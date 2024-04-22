@@ -5,32 +5,37 @@ BUTTON_WIDTH = 6
 BUTTON_HEIGHT = 2
 BUTTON_TEXT_SIZE = 20
 
-calculation = []
+calculation = ""
 
-def append_char(parametr):
-    text_result.insert("end", parametr)
-    calculation.append(parametr)
+def append_char(parameter):
+    text_result.insert("end", parameter)
+    global calculation
+    calculation += str(parameter)
     print(calculation)
 
 def remove_char():
-    if len(calculation) != 0:
-        calculation.pop(-1)
+    global calculation
+    # if len(calculation) != 0:
     print(calculation)
 
 def export_list():
-    calculation.append("=")
-    print("String to process: ", calculation)
+    text_result.delete(1.0, "end")
+
+    global calculation
+    global result
+    print("String to process:",calculation)
 
     inputArgs = InputArgs(calculation)
     result = inputArgs.run_calc(3)
 
-    text_result.delete(1.0, "end")
-    calculation.clear()
+    calculation = ""
+    text_result.insert(1.0, result)
 
 def clear_list():
     print("Clearing input...")
     text_result.delete(1.0, "end")
-    calculation.clear()
+    global calculation
+    calculation = ""
 
 
 root = tk.Tk()
