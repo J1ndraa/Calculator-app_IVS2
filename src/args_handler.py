@@ -73,14 +73,25 @@ class InputArgs:
         return self.__equation
 
     ##
-    # @brief Run the calculator.
+    # @brief Run the calculator tests.
     #
-    def run_calc(self):
+    def run_calc_tests(self):
         # Convert the infix expression to postfix
         self.__calc.postfix_convert(self.get_equation())
         # Evaluate the postfix expression
         self.__calc.eval_expr()
         # Print the result
         self.__calc.print_result()
+
+    ##
+    # @brief Run the calculator.
+    #
+    def run_calc(self, decimal_places: int = 5):
+        # Convert the infix expression to postfix
+        self.__calc.postfix_convert(self.get_equation())
+        # Evaluate the postfix expression
+        self.__calc.eval_expr()
+        # Get the result
+        return self.__calc.get_result(decimal_places)
 
 # End of args_handler.py

@@ -164,6 +164,23 @@ class Calculator:
             print(result)
 
     ##
+    # @brief Get the evaluation result.
+    # @param decimal_places Number of decimal places to round the result to.
+    # @return Evaluation result.
+    #
+    def get_result(self, decimal_places):
+        # Get the result from the stack
+        result = self.__stack.pop()
+
+        # Check if the result is an integer or a float
+        if isinstance(result, float) and result.is_integer():
+            return int(result)
+        else:
+            return round(result, decimal_places)
+
+
+
+    ##
     # @brief Get the precedence of the operator.
     # @param operator Operator to check the precedence of.
     # @return Precedence of the operator.
