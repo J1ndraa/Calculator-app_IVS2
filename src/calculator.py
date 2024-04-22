@@ -178,8 +178,6 @@ class Calculator:
         else:
             return round(result, decimal_places)
 
-
-
     ##
     # @brief Get the precedence of the operator.
     # @param operator Operator to check the precedence of.
