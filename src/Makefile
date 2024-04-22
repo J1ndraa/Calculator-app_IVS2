@@ -13,7 +13,7 @@ CC = python3
 all: 
 
 pack:
-	zip -r IVS2 ../IVS2 #netestováno
+	zip -r ../ivs2 ../IVS2 #netestováno
 clean:
 	rm -rf ../code/__pycache__
 
