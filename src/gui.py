@@ -15,20 +15,24 @@ def append_char(parameter):
 
 def remove_char():
     global calculation
-    # if len(calculation) != 0:
+    if len(calculation) != 0:
+        calculation = calculation[:-1]
+        text_result.delete("end-2c", "end")
     print(calculation)
 
 def export_list():
+    global calculation
+    if len(calculation) == 0:
+        return 
     text_result.delete(1.0, "end")
 
-    global calculation
     global result
     print("String to process:",calculation)
 
     inputArgs = InputArgs(calculation)
     result = inputArgs.run_calc(3)
 
-    calculation = ""
+    calculation = str(result)
     text_result.insert(1.0, result)
 
 def clear_list():
