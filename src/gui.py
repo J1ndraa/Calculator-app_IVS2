@@ -10,12 +10,9 @@ calculation = ""
 
 def append_char(parameter):
     global calculation
-    
-    if parameter == 'Backspace' or parameter == 'Return':
-        print("evaluate pico")
 
     if (parameter < '0' or parameter > '9') and parameter != "+" and parameter != "-" and parameter != "*" and parameter != "/" and parameter != "^" and parameter != "%" and parameter != "(" and parameter != ")" and parameter != "." and parameter != "!" and parameter != "√":
-        print("you SUCKKKKK", parameter)
+        print("Key not allowed", parameter)
         return 
 
     if calculation == "Error":
