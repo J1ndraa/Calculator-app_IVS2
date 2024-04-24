@@ -1,4 +1,4 @@
-# Editor files
+# ignore vscode files
 .vscode/
 
 # python files
