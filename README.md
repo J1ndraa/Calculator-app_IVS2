@@ -1,6 +1,7 @@
 # IVS Projekt 2 - 23/24
 
 Zadáním bylo vytvořit funkční kalkulačku s uživatelským rozhraním. Projekt byl vytvořen v jazyce Python.
+- Popis instalace a užití kalkulačky se nachází v uživatelské dokumentaci, viz dokumentace.pdf 
 
 ## Prostředí
 
