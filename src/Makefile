@@ -13,7 +13,8 @@ CC = python3
 all: 
 
 pack: clean
-	zip -r ../ivs2 ../IVS2
+	zip -r ../xcuprm01_xhalva05_xsmiddo00_xspacej00
+ ../IVS2
 #netestováno
 
 clean:
