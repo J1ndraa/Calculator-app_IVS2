@@ -18,7 +18,7 @@ def append_char(parameter):
     if calculation == "Error":
         text_result.delete(1.0, "end")
         calculation = ""
-        
+
     text_result.insert("end", parameter)
     calculation += str(parameter)
     print(calculation)
