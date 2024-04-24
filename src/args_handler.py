@@ -25,11 +25,13 @@ class InputArgs:
         # Temporary string used to store numbers
         self.__tmp_string = ""
 
+        # Check if the equation starts with a plus or minus sign
+        if isinstance(input, str):
+            if input[0] == '+' or input[0] == '-':
+                input = '0' + input
+
         # Parse the input
         for line in input:
-            # Check if the equation starts with a plus or minus sign
-            if line[0] == '+' or line[0] == '-':
-                line = '0' + line
             # Remove whitespaces
             for string in line.split():
                 # Iterate over the string
@@ -60,7 +62,11 @@ class InputArgs:
                     raise ValueError("Invalid equation")
                 # Valid float
                 else:
-                    self.__equation.append(float(self.__tmp_string))
+                    floatParts = self.__tmp_string.split('.')
+                    if len(floatParts) == 2 and floatParts[1].isdigit():
+                        self.__equation.append(float(self.__tmp_string))
+                    else:
+                        raise ValueError("Invalid equation")
             # Integer value
             else:
                 self.__equation.append(int(self.__tmp_string))
