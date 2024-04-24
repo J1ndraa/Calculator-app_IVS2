@@ -1,0 +1,32 @@
+Summary of Profiling Tests:
+
+The program was profiled with inputs of size 10, 1000, and 1000000 numerical values. Below are the profiling results along with a brief summary:
+
+Profiling Test 1:
+
+Input Size: 10
+Function Calls: 65
+Total Time: 0.000 seconds
+
+Profiling Test 2:
+
+Input Size: 1000
+Function Calls: 5015
+Total Time: 0.003 seconds
+
+Profiling Test 3:
+
+Input Size: 1000000
+Function Calls: 5000015
+Total Time: 2.345 seconds
+
+Summary:
+
+The profiling tests indicate that the program spends the most time in the add and expo functions from the math_library.py module. Optimizing these functions could significantly improve the performance of the whole program.
+
+Optimization Ideas
+- expo function: Replace some expo functions with the mul function to reduce the number of calls.
+- add functions: Replace the add function with the Pythons sum function. However, this approach wouldn't utilize the math_library.py module.
+- Code Refactoring: Combine the three methods in the StandardDeviation class that utilize the same for loop into a single method. This optimization would enhance the code speed but might slightly reduce the code readability.
+
+@author ~ Marek Čupr (xcuprm01)

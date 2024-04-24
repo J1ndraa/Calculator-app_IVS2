@@ -1,0 +1,67 @@
+# Profiling test 1
+# Numbers on the input: 10
+65 function calls in 0.000 seconds
+
+Ordered by: standard name
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    30   0.000    0.000    0.000    0.000 math_library.py:22(add)
+    2    0.000    0.000    0.000    0.000 math_library.py:32(sub)
+    2    0.000    0.000    0.000    0.000 math_library.py:42(mul)
+    2    0.000    0.000    0.000    0.000 math_library.py:52(div)
+    21   0.000    0.000    0.000    0.000 math_library.py:66(expo)
+    1    0.000    0.000    0.000    0.000 math_library.py:79(sqrt)
+    1    0.000    0.000    0.000    0.000 profiling.py:14(calculate)
+    1    0.000    0.000    0.000    0.000 profiling.py:18(<listcomp>)
+    1    0.000    0.000    0.000    0.000 profiling.py:21(calculate_len)
+    1    0.000    0.000    0.000    0.000 profiling.py:25(calculate_sum)
+    1    0.000    0.000    0.000    0.000 profiling.py:29(calculate_sum_expo)
+    1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+    1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+# Profiling test 2
+# Numbers on the input: 1000
+
+5015 function calls in 0.003 seconds
+
+Ordered by: standard name
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+ 3000    0.000    0.000    0.000    0.000 math_library.py:22(add)
+    2    0.000    0.000    0.000    0.000 math_library.py:32(sub)
+    2    0.000    0.000    0.000    0.000 math_library.py:42(mul)
+    2    0.000    0.000    0.000    0.000 math_library.py:52(div)
+ 2001    0.000    0.000    0.000    0.000 math_library.py:66(expo)
+    1    0.000    0.000    0.000    0.000 math_library.py:79(sqrt)
+    1    0.000    0.000    0.003    0.003 profiling.py:14(calculate)
+    1    0.000    0.000    0.000    0.000 profiling.py:18(<listcomp>)
+    1    0.000    0.000    0.000    0.000 profiling.py:21(calculate_len)
+    1    0.000    0.000    0.001    0.001 profiling.py:25(calculate_sum)
+    1    0.001    0.001    0.001    0.001 profiling.py:29(calculate_sum_expo)
+    1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+    1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+# Profiling test 3
+# Numbers on the input: 1000000
+
+5000015 function calls in 2.345 seconds
+
+Ordered by: standard name
+
+  ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+3000000    0.340    0.000    0.340    0.000 math_library.py:22(add)
+      2    0.000    0.000    0.000    0.000 math_library.py:32(sub)
+      2    0.000    0.000    0.000    0.000 math_library.py:42(mul)
+      2    0.000    0.000    0.000    0.000 math_library.py:52(div)
+2000001    0.427    0.000    0.427    0.000 math_library.py:66(expo)
+      1    0.000    0.000    0.000    0.000 math_library.py:79(sqrt)
+      1    0.000    0.000    2.345    2.345 profiling.py:14(calculate)
+      1    0.285    0.285    0.502    0.502 profiling.py:18(<listcomp>)
+      1    0.350    0.350    0.462    0.462 profiling.py:21(calculate_len)
+      1    0.342    0.342    0.451    0.451 profiling.py:25(calculate_sum)
+      1    0.600    0.600    0.930    0.930 profiling.py:29(calculate_sum_expo)
+      1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+      1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+@author ~ Marek Čupr (xcuprm01)
