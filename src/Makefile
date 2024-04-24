@@ -13,7 +13,7 @@ CC = python3
 all: run
 
 pack: clean
-	zip -r ../../xcuprm01_xhalva05_xsmiddo00_xspacej00 ../../IVS2
+	cd ../../ && zip -r xcuprm01_xhalva05_xsmiddo00_xspacej00 IVS2
 
 clean:
 	rm -rf __pycache__
