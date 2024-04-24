@@ -18,11 +18,15 @@ pack: clean
 clean:
 	rm -rf __pycache__
 	rm -rf build dist gui.spec
+	rm -rf ../doc
 
 test:
 	chmod +x basic_test.sh && ./basic_test.sh -r 5 && python3 math_library_test.py
 
-doc:
+doc: Doxyfile
+	rm -rf ../doc
+	mkdir ../doc
+	doxygen Doxyfile
 
 run: gui.py
 	python3 gui.py
