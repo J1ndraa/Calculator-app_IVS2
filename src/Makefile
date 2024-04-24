@@ -10,36 +10,32 @@
 CC = python3
 .DEFAULT_GOAL := all
 
-all: run
+all: dist
+	./dist/gui
 
 pack: clean
 	cd ../../ && zip -r xcuprm01_xhalva05_xsmiddo00_xspacej00 IVS2
 
 clean:
 	rm -rf __pycache__
-	rm -rf build dist gui.spec
+	rm -rf dist
 	rm -rf ../doc
 
 test:
 	chmod +x basic_test.sh && ./basic_test.sh -r 5 && python3 math_library_test.py
 
-doc: Doxyfile
+doc:
 	rm -rf ../doc
 	mkdir ../doc
 	doxygen Doxyfile
 
-run: gui.py
-	python3 gui.py
+run: 
+	./dist/gui
 
 profile:
 
-install:
-	chmod +rwx ../../IVS2
+dist:
 	pyinstaller --onefile gui.py
 	rm -rf build gui.spec
-
-uninstall:
-	rm -rf ../../IVS2
-
 
 .PHONY: all pack clean test doc run profile install
