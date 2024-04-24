@@ -7,7 +7,6 @@ destination_folder="$1"
 if [ $# -ne 1 ]; then
     echo "Base installation directory"
     destination_folder="../"
-    
 fi
 
 
@@ -26,10 +25,10 @@ fi
 # Copy the file to the destination folder
 cp "./gui" "$destination_folder/"
 
-touch "$1/uninstall.sh"
-echo '#!/bin/bash' > "$1/uninstall.sh"
-echo "rm "$1/gui"" >> "$1/uninstall.sh"
-echo "rm "$1/uninstall,sh"" >> "$1/uninstall.sh"
-chmod +x "$1/uninstall.sh"
+touch "$destination_folder/uninstall.sh"
+echo '#!/bin/bash' > "$destination_folder/uninstall.sh"
+echo "rm "./gui"" >> "$destination_folder/uninstall.sh"
+echo "rm "./uninstall.sh"" >> "$destination_folder/uninstall.sh"
+chmod +x "$destination_folder/uninstall.sh"
 
 echo "Successfully installed "
