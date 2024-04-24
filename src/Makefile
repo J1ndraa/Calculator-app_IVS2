@@ -34,7 +34,12 @@ run: gui.py
 profile:
 
 install:
+	chmod +rwx ../../IVS2
 	pyinstaller --onefile gui.py
 	rm -rf build gui.spec
+
+uninstall:
+	rm -rf ../../IVS2
+
 
 .PHONY: all pack clean test doc run profile install
