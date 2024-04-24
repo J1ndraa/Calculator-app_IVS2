@@ -1,0 +1,8 @@
+# Editor files
+.vscode/
+
+# python files
+__pycache__/
+
+# zip files
+*.zip
