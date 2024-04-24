@@ -10,16 +10,18 @@
 CC = python3
 .DEFAULT_GOAL := all
 
-all: 
+all: run
 
 pack: clean
-	zip -r ../xhalva05_xcuprm01_xsmiddo00_xspacej00 ../xhalva05_xcuprm01_xsmiddo00_xspacej00
+	zip -r ../xcuprm01_xhalva05_xsmiddo00_xspacej00 ../IVS2
+#netestováno
 
 clean:
 	rm -rf __pycache__
+	rm -rf build dist gui.spec
 
 test:
-	bash basic_test.sh
+	chmod +x basic_test.sh && ./basic_test.sh -r 5 && python3 math_library_test.py
 
 doc:
 
@@ -28,4 +30,8 @@ run: gui.py
 
 profile:
 
-.PHONY: all pack clean test doc run profile
+install:
+	pyinstaller --onefile gui.py
+	rm -rf build gui.spec
+
+.PHONY: all pack clean test doc run profile install
