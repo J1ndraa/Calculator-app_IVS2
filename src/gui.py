@@ -1,3 +1,12 @@
+##
+# @author Dominik Šmíd (xsmiddo00)
+# @name Calculator gui
+# @subject IVS - Project 2
+# @date 24. 04. 2024
+#
+# @brief This file includes GUI implementation for Calculator
+#
+
 from tkinter import *
 import tkinter as tk
 from args_handler import InputArgs
@@ -10,8 +19,9 @@ DARKBLUE = "#1167b1"
 LIGHTBLUE = "#2a9df4"
 calculation = ""
 
-
-# fuction for adding character to the equation
+##
+# @brief fuction for adding character to the equation
+#
 def append_char(parameter):
     global calculation
 
@@ -31,7 +41,9 @@ def append_char(parameter):
     print(calculation)
 
 
-# fuction for removing last character in equation
+##
+# @brief function for removing last character in equation
+#
 def remove_char():
     print("removing char...")
     global calculation
@@ -47,7 +59,9 @@ def remove_char():
     print(calculation)
 
 
-# function for evaluating the equation
+##
+# @brief function for evaluating the equation
+#
 def export_list():
     global calculation
     if len(calculation) == 0:
@@ -71,26 +85,36 @@ def export_list():
     text_result.insert(1.0, result)
 
 
-# function for clearing the whole screen
+##
+# @brief function for clearing the whole screen
+#
 def clear_list():
     print("Clearing input...")
     text_result.delete(1.0, "end")
     global calculation
     calculation = ""
 
-# function for pressing any key
+##
+# @brief function for pressing any key
+#
 def key_click(event):
     append_char(event.char)
 
-# function for pressing enter
+##
+# @brief function for pressing enter
+#
 def enter_click(event):
     export_list()
 
-# function for pressing backspace
+##
+# @brief function for pressing backspace
+#
 def backspace_click(event):
     remove_char()
 
-# function for pressing the numpad enter
+##
+# @brief function for pressing the numpad enter
+#
 def numpad_enter_click(event):
     export_list()
 
