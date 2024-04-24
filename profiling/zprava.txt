@@ -27,6 +27,6 @@ The profiling tests indicate that the program spends the most time in the add an
 Optimization Ideas
 - expo function: Replace some expo functions with the mul function to reduce the number of calls.
 - add functions: Replace the add function with the Pythons sum function. However, this approach wouldn't utilize the math_library.py module.
-- Code Refactoring: Combine the three methods in the StandardDeviation class that utilize the same for loop into a single method. This optimization would enhance the code speed but might slightly reduce the code readability.
+- code refactoring: Combine the three methods in the StandardDeviation class that utilize the same for loop into a single method. This optimization would enhance the code speed but might slightly reduce the code readability.
 
 @author ~ Marek Čupr (xcuprm01)
