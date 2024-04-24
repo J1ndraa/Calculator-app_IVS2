@@ -81,7 +81,7 @@ def numpad_enter_click(event):
 root = tk.Tk()
 root.geometry("655x515")
 root.resizable(False, False)
-root.title("The_Ultimate_Klidecek_Calculator")
+root.title("Klidecek Calculator")
 
 text_result = tk.Text(root, height=3, width=36, bg="white", font=("Arial", 24))
 text_result.grid(columnspan=6, pady=0, padx=0)
