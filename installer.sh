@@ -6,7 +6,7 @@ destination_folder="$1"
 # Check if the destination folder argument is provided
 if [ $# -ne 1 ]; then
     echo "Base installation directory"
-    destination_folder="../"
+    destination_folder="../../"
 fi
 
 
