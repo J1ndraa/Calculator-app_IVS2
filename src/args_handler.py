@@ -27,6 +27,9 @@ class InputArgs:
 
         # Parse the input
         for line in input:
+            # Check if the equation starts with a plus or minus sign
+            if line[0] == '+' or line[0] == '-':
+                line = '0' + line
             # Remove whitespaces
             for string in line.split():
                 # Iterate over the string
