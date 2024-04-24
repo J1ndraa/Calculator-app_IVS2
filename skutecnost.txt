@@ -1,0 +1,15 @@
+-----Skutečný průběh vývoje projektu-----
+
+Plán, který jsme vytořili na začátku projektu, jsme bohužel museli vícekrát měnit a příliš jsme ho nedodrželi. Hlavní příčinou byla časová vytíženost jednotlivých členů týmu. Při tvoření plánu jsme přemýšleli možná trochu utopicky, a sestrojili jsme ho tak, jak jsme doopravdy chtěli aby průběh probíhal, ale realita byla trochu jinde. S postupem času se nám tvořilo čím dál větší zpoždení na jednotlivé části projektu. Na konec, nemyslíme si, že by to bylo až tak daleko od reálného průběhu tvoření software v praxi.
+
+V původním plánu se tvoření gui měl ujmout xcuprm01, na začatku se ale zaobíral testy matematické knihovny, které mu šli, a tak jsme gui přiřadili xsmiddo00, to se ukázalo jako dobrý krok. S gui bylo tolik práce, že nám přišlo fér nepřidávat mu další práci. 
+
+Matematickou knihovnu a její funkci zhotovili xcuprm01 a xhalva05.
+
+Mezitiím xspacej00 řešil Makefile a Instalátory. Instalátory nám zabrali vcelku hodně času, ani jeden jsme si nebyli jisti, jak by tato část měla být zhotovena.
+
+Většina práce se nám nahrnula na poslední týden. Sice jsme to tak nechtěli, ale s ohledem na spoustu jiných projektů to tak dopadlo. V tomto posledním týdnu jsme si ještě přerozdělovali chybějící části. Profiling dodělal xcuprm01. Do textových záležitostí (dokumentace) a návrhu mockupu se dal xhalva05. Stále nevyřešené instalátory řešil spacej00.
+
+Funkčnost se povedla dokončit dva dny před odevzdání. Pak už jsme řesili ostatní formálnosti.
+
+Verzování na platformě github probíhalo naprosto v pořádku. Zlepšit jsme mohli komunikaci a častější osobní schůzky (nebo alespoň videohovory).
