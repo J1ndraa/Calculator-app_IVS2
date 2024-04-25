@@ -14,7 +14,7 @@ all: dist
 	./dist/gui
 
 pack: clean
-	cd ../../ && zip -r xcuprm01_xhalva05_xsmiddo00_xspacej00 IVS2
+	cd ../../../ && zip -r xcuprm01_xhalva05_xsmiddo00_xspacej00 xcuprm01_xhalva05_xsmiddo00_xspacej00
 
 clean:
 	rm -rf __pycache__
@@ -35,12 +35,12 @@ run:
 profile:
 
 dist:
-	chmod +rwx ../../IVS2
+	chmod +rwx ../../../xcuprm01_xhalva05_xsmiddo00_xspacej00
 	pyinstaller --onefile gui.py
 	rm -rf build gui.spec
 
 uninstall:
-	chmod +rwx ../../IVS2
-	rm -rf ../../IVS2
+	chmod +rwx ../../../xcuprm01_xhalva05_xsmiddo00_xspacej00
+	rm -rf ../../../xcuprm01_xhalva05_xsmiddo00_xspacej00
 
 .PHONY: all pack clean test doc run profile install
